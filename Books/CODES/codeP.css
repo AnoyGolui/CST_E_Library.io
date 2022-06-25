@@ -1,0 +1,25 @@
+body{
+	background:#222327 ;
+}
+.container{
+	background: #36454F;
+	border: 1px solid whitesmoke;
+	margin-left: 8px;
+	margin-top: 15px;
+	max-width: 450px;
+	height: 500px;
+}
+.conTop{
+	width:200px;
+	height: 40px;
+	background: #100c08;
+}
+.conLeft{
+	position:absolute ;
+	width: 40px;
+	height: 460px;
+	background: #100c08;
+}
+p{
+	margin-left: 50px;
+}

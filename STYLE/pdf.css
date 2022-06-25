@@ -1,0 +1,11 @@
+body{
+	background: #222327;
+}
+.bod{
+	border-radius: 20px;
+	background: greenyellow;
+}
+embed{
+	margin-top: 5px;
+	border-radius: 20px;
+}

@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
+    <!-- Custom Highlight.js theme Dracula -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.5.0/styles/rainbow.css" />
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+  padding: 20px;
+  background: #222327;
+  font-family: 'VT323', monospace;  
+}
+
+h2{
+  margin-top: 50px;
+  color: yellowgreen;
+}
+.header {
+  margin-top: -40px;
+  padding: 5px;
+  font-size: 40px;
+  text-align: center;
+  color: yellowgreen;
+  
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+   float: right;
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+   background: #222327;
+   padding: 20px;
+   margin-top: -60px;
+}
+.card p{
+  border-radius: 10px;
+  padding: 20px;
+  background: #11101d;
+  margin-left:-20px;
+  color: orange;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  float: right;
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+.container {
+  width: 100%;
+
+}
+
+.language {
+  color: white;
+  background-color: #1f4287;
+  padding: 0;
+  border-radius: 5px 5px 0 0;
+  text-align: right;
+}
+
+.code-wrapper {
+  overflow: hidden;
+  position: relative;
+  margin-left: 5px;
+}
+
+.code-wrapper pre {
+  background-color: #071e3d;
+  color: white;
+  padding: 10px;
+  border-radius: 0 0 5px 5px;
+}
+code{
+  margin-left: -9px;
+  margin-top: -27px;
+  overflow: hidden;
+  margin-bottom: -45px;
+}
+
+.code-wrapper:hover #copy-button {
+  opacity: 1;
+}
+
+#copy-success {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f4287;
+  color: white;
+  padding: 16px 32px;
+  font-size: 24px;
+  border-radius: 5px;
+  display: none;
+}
+
+#copy-success.show-message {
+  display: inline-block;
+}
+
+.hljs {
+  background-color: transparent;
+}
+.group::after, .tabBlock-tabs::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    font-size: 137.5%;
+  }
+}
+
+p, ol, ul {
+  margin-bottom: -20px;
+  margin-top: 0;
+}
+
+ol, ul {
+  padding: 0;
+  margin-left: 1.25rem;
+}
+.tabBlock{
+  margin-left: -20px;
+  max-width: 550px;
+  min-width: 400px;
+}
+.unstyledList, .tabBlock-tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabBlock-tab {
+  background:#1f4287;
+  border-color:2px solid black;
+  border-style: solid;
+  width: 40px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: -15px;
+  font-weight: 600;
+  float: right;
+  position: relative;
+  -webkit-transition: 0.1s ease-in-out;
+          transition: 0.1s ease-in-out;
+}
+.tabBlock-tab:last-of-type {
+  border-right-style: solid;
+}
+.tabBlock-tab::before, .tabBlock-tab::after {
+  content: "";
+  display: block;
+  height: 4px;
+  position: absolute;
+  -webkit-transition: 0.1s ease-in-out;
+          transition: 0.1s ease-in-out;
+}
+.tabBlock-tab::before {
+  left: -2px;
+  right: -2px;
+}
+.tabBlock-tab::after {
+  left: 0;
+  right: 0;
+}
+@media screen and (min-width: 700px) {
+  .tabBlock-tab {
+    
+  }
+}
+.tabBlock-tab.is-active {
+  position: relative;
+  color: orangered;
+  z-index: 1;
+}
+#ed{
+  opacity: 0;
+}
+.tabBlock-content{
+  border: 3px solid #1f4287;
+  border-radius: 20px;
+  background:#1f4287;
+}
+.tabBlock-pane > :last-child {
+  margin-bottom: 0;
+} 
+.container1{
+  width: 90%;
+  margin-left: -23px;
+  border-left-style: 20px solid #1f4287 ;
+}
+.tabBlock-tab img{
+  margin-top: 4px;
+
+}
+.cpyB{
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  border: none;
+  margin-left: 3px;
+  margin-top: 3px;
+  background-color: #000080;
+}
+.cpyB img{
+  margin-top: 6px;
+  margin-left:2px;
+  width: 28px;
+  height: 28px;
+}
+.cpyB:hover{
+  background: orangered;
+}
+.edit{
+  border-radius: 50%;
+  margin-left: 3px;
+  margin-top: 3px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  border: none;
+  background-color: #000080;
+}
+.edit img{
+  margin: 4px;
+  width: 31px;
+  height: 31px;
+}
+.edit:hover{
+  background: orangered;
+}
+.rightB{
+  margin-top: 20px;
+  float: right;
+  display: flex;
+  flex-direction: column;
+}
+.save{
+  margin-left: 3px;
+  cursor: pointer;
+  margin-top: 3px;
+  width: 45px;
+  height: 45px;
+  background-color: #000080;
+  border-radius: 50%;
+  border: none;
+}
+.save img{
+  width: 25px;
+  height: 25px;
+  margin: 4px;
+}
+.save:hover{
+  background:orangered ;
+}
+::-webkit-scrollbar{
+  width: 12px;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(transparent,darkblue);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(transparent,blue);
+}
+::selection {
+   background: #212129;
+}
+#codeY{
+  overflow: hidden;
+  border-radius: 10px;
+}
+#rs{
+  padding-bottom: 20px;
+
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h2>Queue Data Structure</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>A queue is a useful data structure in programming. It is similar to the ticket queue outside a cinema hall, where the first person entering the queue is the first person who gets the ticket.
+
+Queue follows the First In First Out (FIFO) rule - the item that goes in first is the item that comes out first.
+
+</h2>
+<p>In programming terms, putting items in the queue is called enqueue, and removing items from the queue is called dequeue.</p>
+      <h2>Basic Operations of Queue</h2>
+      <p>
+A queue is an object (an abstract data structure - ADT) that allows the following operations:
+<br>
+Enqueue: Add an element to the end of the queue
+<br>
+<br>
+Dequeue: Remove an element from the front of the queue
+<br>
+<br>
+IsEmpty: Check if the queue is empty
+<br>
+<br>
+IsFull: Check if the queue is full
+<br>
+<br>
+Peek: Get the value of the front of the queue without removing it
+<br>
+<br>
+</p><br><br>
+      
+    </div>
+    <div class="card">
+  
+      <h2>Working of Queue<br>
+Queue operations work as follows:</h2>
+      <p>
+
+> two pointers FRONT and REAR
+<br><br>
+> FRONT track the first element of the queue
+<br><br>
+> REAR track the last element of the queue
+<br><br>
+> initially, set value of FRONT and REAR to -1
+<br><br>
+</p>
+<h2>Enqueue Operation</h2>
+<p>
+> check if the queue is full
+<br><br>
+> for the first element, set the value of FRONT to 0
+<br><br>
+> increase the REAR index by 1
+<br><br>
+> add the new element in the position pointed to by REAR
+<br><br>
+</p>
+
+<h2>Dequeue Operation</h2>
+<p>> check if the queue is empty
+  <br><br>
+> return the value pointed by FRONT
+<br><br>
+> increase the FRONT index by 1
+<br><br>
+> for the last element, reset the values of FRONT and REAR to -1
+<br><br>
+</p><br>
+      <figure class="tabBlock">
+  <ul class="tabBlock-tabs">
+    <li class="tabBlock-tab " title="C++">
+      <img src="../images/cpp.png" width="30px">
+    </li>
+    <li class="tabBlock-tab is-active" title="C">
+      <img src="../images/c.png" width="30px">
+    </li>
+    <li class="tabBlock-tab" title="Python">
+      <img src="../images/python.png">
+    </li>
+    <li class="tabBlock-tab" title="Java">
+      <img src="../images/java_1.png" width="30px">
+    </li>
+  </ul>
+  <div class="tabBlock-content">
+    <div class="tabBlock-pane">
+      <div class="container">
+      <div class="code-wrapper">
+        <div class="rightB">
+          <button class="cpyB" title="copy" onclick="copy('code1')">
+          <img src="../images/files.png">
+        </button>
+         <button type="submit" class="edit" id="edit-button1">
+           <img src="../images/edit.png">
+         </button>
+         <button type="submit" class="save" id="end-editing1">
+           <img src="../images/save.png">
+         </button>
+        </div>
+        
+        <pre>
+                <code id="code1">
+// Queue implementation in C++
+
+#include < iostream >
+#define SIZE 5
+
+using namespace std;
+
+class Queue {
+   private:
+  int items[SIZE], front, rear;
+
+   public:
+  Queue() {
+    front = -1;
+    rear = -1;
+  }
+
+  bool isFull() {
+    if (front == 0 && rear == SIZE - 1) {
+      return true;
+    }
+    return false;
+  }
+
+  bool isEmpty() {
+    if (front == -1)
+      return true;
+    else
+      return false;
+  }
+
+  void enQueue(int element) {
+    if (isFull()) {
+      cout << "Queue is full";
+    } else {
+      if (front == -1) front = 0;
+      rear++;
+      items[rear] = element;
+      cout << endl
+         << "Inserted " << element << endl;
+    }
+  }
+
+  int deQueue() {
+    int element;
+    if (isEmpty()) {
+      cout << "Queue is empty" << endl;
+      return (-1);
+    } else {
+      element = items[front];
+      if (front >= rear) {
+        front = -1;
+        rear = -1;
+      } /* Q has only one element, so we reset the queue after deleting it. */
+      else {
+        front++;
+      }
+      cout << endl
+         << "Deleted -> " << element << endl;
+      return (element);
+    }
+  }
+
+  void display() {
+    /* Function to display elements of Queue */
+    int i;
+    if (isEmpty()) {
+      cout << endl
+         << "Empty Queue" << endl;
+    } else {
+      cout << endl
+         << "Front index-> " << front;
+      cout << endl
+         << "Items -> ";
+      for (i = front; i <= rear; i++)
+        cout << items[i] << "  ";
+      cout << endl
+         << "Rear index-> " << rear << endl;
+    }
+  }
+};
+
+int main() {
+  Queue q;
+
+  //deQueue is not possible on empty queue
+  q.deQueue();
+
+  //enQueue 5 elements
+  q.enQueue(1);
+  q.enQueue(2);
+  q.enQueue(3);
+  q.enQueue(4);
+  q.enQueue(5);
+
+  // 6th element can't be added to because the queue is full
+  q.enQueue(6);
+
+  q.display();
+
+  //deQueue removes element entered first i.e. 1
+  q.deQueue();
+
+  //Now we have just 4 elements
+  q.display();
+
+  return 0;
+}
+</code>
+            </pre>
+        
+      </div>
+
+    </div>
+    </div>
+    <div class="tabBlock-pane">
+      <div class="container">
+      
+      <div class="code-wrapper">
+         <div class="rightB">
+          <button class="cpyB" title="copy" onclick="copy('code2')">
+          <img src="../images/files.png">
+        </button>
+         <button type="submit" class="edit" id="edit-button2">
+           <img src="../images/edit.png">
+         </button>
+         <button type="submit" class="save" id="end-editing2">
+          <img src="../images/save.png">
+         </button>
+        </div>
+        
+        <pre>
+                <code id="code2">
+// Queue implementation in C
+
+#include <stdio.h>
+#define SIZE 5
+
+void enQueue(int);
+void deQueue();
+void display();
+
+int items[SIZE], front = -1, rear = -1;
+
+int main() {
+  //deQueue is not possible on empty queue
+  deQueue();
+
+  //enQueue 5 elements
+  enQueue(1);
+  enQueue(2);
+  enQueue(3);
+  enQueue(4);
+  enQueue(5);
+
+  // 6th element can't be added to because the queue is full
+  enQueue(6);
+
+  display();
+
+  //deQueue removes element entered first i.e. 1
+  deQueue();
+
+  //Now we have just 4 elements
+  display();
+
+  return 0;
+}
+
+void enQueue(int value) {
+  if (rear == SIZE - 1)
+    printf("\nQueue is Full!!");
+  else {
+    if (front == -1)
+      front = 0;
+    rear++;
+    items[rear] = value;
+    printf("\nInserted -> %d", value);
+  }
+}
+
+void deQueue() {
+  if (front == -1)
+    printf("\nQueue is Empty!!");
+  else {
+    printf("\nDeleted : %d", items[front]);
+    front++;
+    if (front > rear)
+      front = rear = -1;
+  }
+}
+
+// Function to print the queue
+void display() {
+  if (rear == -1)
+    printf("\nQueue is Empty!!!");
+  else {
+    int i;
+    printf("\nQueue elements are:\n");
+    for (i = front; i <= rear; i++)
+      printf("%d  ", items[i]);
+  }
+  printf("\n");
+}</code>
+            </pre>
+
+      </div>
+    
+
+    </div>
+
+    </div>
+    <div class="tabBlock-pane">
+      <div class="container">
+      <div class="code-wrapper">
+        <div class="rightB">
+          <button class="cpyB" title="copy" onclick="copy('code3')">
+          <img src="../images/files.png">
+        </button>
+         <button type="submit" class="edit" id="edit-button3">
+           <img src="../images/edit.png">
+         </button>
+         <button type="submit" class="save" id="end-editing3">
+           <img src="../images/save.png">
+         </button>
+        </div>
+        
+        <pre>
+                <code id="code3">
+# Queue implementation in Python
+
+class Queue:
+
+    def __init__(self):
+        self.queue = []
+
+    # Add an element
+    def enqueue(self, item):
+        self.queue.append(item)
+
+    # Remove an element
+    def dequeue(self):
+        if len(self.queue) < 1:
+            return None
+        return self.queue.pop(0)
+
+    # Display  the queue
+    def display(self):
+        print(self.queue)
+
+    def size(self):
+        return len(self.queue)
+
+
+q = Queue()
+q.enqueue(1)
+q.enqueue(2)
+q.enqueue(3)
+q.enqueue(4)
+q.enqueue(5)
+
+q.display()
+
+q.dequeue()
+
+print("After removing an element")
+q.display()
+</code>
+            </pre>
+        
+      </div>
+
+    </div>
+
+  </div>
+  <div class="tabBlock-pane">
+      <div class="container">
+      <div class="code-wrapper">
+        <div class="rightB">
+          <button class="cpyB" title="copy" onclick="copy('code4')">
+          <img src="../images/files.png">
+        </button>
+         <button type="submit" class="edit" id="edit-button4">
+           <img src="../images/edit.png">
+         </button>
+         <button type="submit" class="save" id="end-editing4">
+           <img src="../images/save.png">
+         </button>
+        </div>
+        
+        <pre>
+                <code id="code4">
+// Queue implementation in Java
+
+public class Queue {
+  int SIZE = 5;
+  int items[] = new int[SIZE];
+  int front, rear;
+
+  Queue() {
+    front = -1;
+    rear = -1;
+  }
+
+  boolean isFull() {
+    if (front == 0 && rear == SIZE - 1) {
+      return true;
+    }
+    return false;
+  }
+
+  boolean isEmpty() {
+    if (front == -1)
+      return true;
+    else
+      return false;
+  }
+
+  void enQueue(int element) {
+    if (isFull()) {
+      System.out.println("Queue is full");
+    } else {
+      if (front == -1)
+        front = 0;
+      rear++;
+      items[rear] = element;
+      System.out.println("Inserted " + element);
+    }
+  }
+
+  int deQueue() {
+    int element;
+    if (isEmpty()) {
+      System.out.println("Queue is empty");
+      return (-1);
+    } else {
+      element = items[front];
+      if (front >= rear) {
+        front = -1;
+        rear = -1;
+      } /* Q has only one element, so we reset the queue after deleting it. */
+      else {
+        front++;
+      }
+      System.out.println("Deleted -> " + element);
+      return (element);
+    }
+  }
+
+  void display() {
+    /* Function to display elements of Queue */
+    int i;
+    if (isEmpty()) {
+      System.out.println("Empty Queue");
+    } else {
+      System.out.println("\nFront index-> " + front);
+      System.out.println("Items -> ");
+      for (i = front; i <= rear; i++)
+        System.out.print(items[i] + "  ");
+
+      System.out.println("\nRear index-> " + rear);
+    }
+  }
+
+  public static void main(String[] args) {
+    Queue q = new Queue();
+
+    // deQueue is not possible on empty queue
+    q.deQueue();
+
+    // enQueue 5 elements
+    q.enQueue(1);
+    q.enQueue(2);
+    q.enQueue(3);
+    q.enQueue(4);
+    q.enQueue(5);
+
+    // 6th element can't be added to because the queue is full
+    q.enQueue(6);
+
+    q.display();
+
+    // deQueue removes element entered first i.e. 1
+    q.deQueue();
+
+    // Now we have just 4 elements
+    q.display();
+
+  }
+}</code>
+            </pre>
+        
+      </div>
+      
+
+    </div>
+</figure>
+<h4>OUTPUT</h4>
+<div class="container1">
+      <div class="code-wrapper">
+        <pre>
+                <code id="code">
+Queue is Empty!!
+Inserted -> 1
+Inserted -> 2
+Inserted -> 3
+Inserted -> 4
+Inserted -> 5
+Queue is Full!!
+Queue elements are:
+1  2  3  4  5  
+
+Deleted : 1
+Queue elements are:
+2  3  4  5   
+                </code>
+            </pre>
+          </div>
+        </div>
+  </div>
+  
+  <figure class="tabBlock">
+  <ul class="tabBlock-tabs">
+    <li class="tabBlock-tab " title="C++">
+      <img src="../images/cpp.png" width="30px">
+    </li>
+    <li class="tabBlock-tab is-active" title="C">
+      <img src="../images/c.png" width="30px">
+    </li>
+    <li class="tabBlock-tab" title="Python">
+      <img src="../images/python.png">
+    </li>
+    <li class="tabBlock-tab" title="Java">
+      <img src="../images/java_1.png" width="30px">
+    </li>
+  </ul>
+  <div class="tabBlock-content">
+    <div class="tabBlock-pane">
+      <div class="container">
+      <div class="code-wrapper">
+        <div class="rightB">
+          <button class="cpyB" title="copy" onclick="copy('code1')">
+          <img src="../images/files.png">
+        </button>
+         <button type="submit" class="edit" id="edit-button1">
+           <img src="../images/edit.png">
+         </button>
+         <button type="submit" class="save" id="end-editing1">
+           <img src="../images/save.png">
+         </button>
+        </div>
+        
+        <pre>
+                <code id="code1">
+// Stack implementation in C++
+
+#include < stdlib.h >
+#include < iostream >
+
+using namespace std;
+
+#define MAX 10
+int size = 0;
+
+// Creating a stack
+struct stack {
+  int items[MAX];
+  int top;
+};
+typedef struct stack st;
+
+void createEmptyStack(st *s) {
+  s->top = -1;
+}
+
+// Check if the stack is full
+int isfull(st *s) {
+  if (s->top == MAX - 1)
+    return 1;
+  else
+    return 0;
+}
+
+// Check if the stack is empty
+int isempty(st *s) {
+  if (s->top == -1)
+    return 1;
+  else
+    return 0;
+}
+
+// Add elements into stack
+void push(st *s, int newitem) {
+  if (isfull(s)) {
+    cout << "STACK FULL";
+  } else {
+    s->top++;
+    s->items[s->top] = newitem;
+  }
+  size++;
+}
+
+// Remove element from stack
+void pop(st *s) {
+  if (isempty(s)) {
+    cout << "\n STACK EMPTY \n";
+  } else {
+    cout << "Item popped= " << s->items[s->top];
+    s->top--;
+  }
+  size--;
+  cout << endl;
+}
+
+// Print elements of stack
+void printStack(st *s) {
+  printf("Stack: ");
+  for (int i = 0; i < size; i++) {
+    cout << s->items[i] << " ";
+  }
+  cout << endl;
+}
+
+// Driver code
+int main() {
+  int ch;
+  st *s = (st *)malloc(sizeof(st));
+
+  createEmptyStack(s);
+
+  push(s, 1);
+  push(s, 2);
+  push(s, 3);
+  push(s, 4);
+
+  printStack(s);
+
+  pop(s);
+
+  cout << "\nAfter popping out\n";
+  printStack(s);
+}
+</code>
+            </pre>
+        
+      </div>
+
+    </div>
+    </div>
+    <div class="tabBlock-pane">
+      <div class="container">
+      
+      <div class="code-wrapper">
+         <div class="rightB">
+          <button class="cpyB" title="copy" onclick="copy('code2')">
+          <img src="../images/files.png">
+        </button>
+         <button type="submit" class="edit" id="edit-button2">
+           <img src="../images/edit.png">
+         </button>
+         <button type="submit" class="save" id="end-editing2">
+          <img src="../images/save.png">
+         </button>
+        </div>
+        
+        <pre>
+                <code id="code2">
+// Stack implementation in C
+
+#include < stdio.h >
+#include < stdlib.h >
+
+#define MAX 10
+
+int count = 0;
+
+// Creating a stack
+struct stack {
+  int items[MAX];
+  int top;
+};
+typedef struct stack st;
+
+void createEmptyStack(st *s) {
+  s->top = -1;
+}
+
+// Check if the stack is full
+int isfull(st *s) {
+  if (s->top == MAX - 1)
+    return 1;
+  else
+    return 0;
+}
+
+// Check if the stack is empty
+int isempty(st *s) {
+  if (s->top == -1)
+    return 1;
+  else
+    return 0;
+}
+
+// Add elements into stack
+void push(st *s, int newitem) {
+  if (isfull(s)) {
+    printf("STACK FULL");
+  } else {
+    s->top++;
+    s->items[s->top] = newitem;
+  }
+  count++;
+}
+
+// Remove element from stack
+void pop(st *s) {
+  if (isempty(s)) {
+    printf("\n STACK EMPTY \n");
+  } else {
+    printf("Item popped= %d", s->items[s->top]);
+    s->top--;
+  }
+  count--;
+  printf("\n");
+}
+
+// Print elements of stack
+void printStack(st *s) {
+  printf("Stack: ");
+  for (int i = 0; i < count; i++) {
+    printf("%d ", s->items[i]);
+  }
+  printf("\n");
+}
+
+// Driver code
+int main() {
+  int ch;
+  st *s = (st *)malloc(sizeof(st));
+
+  createEmptyStack(s);
+
+  push(s, 1);
+  push(s, 2);
+  push(s, 3);
+  push(s, 4);
+
+  printStack(s);
+
+  pop(s);
+
+  printf("\nAfter popping out\n");
+  printStack(s);
+}</code>
+            </pre>
+
+      </div>
+    
+
+    </div>
+
+    </div>
+    <div class="tabBlock-pane">
+      <div class="container">
+      <div class="code-wrapper">
+        <div class="rightB">
+          <button class="cpyB" title="copy" onclick="copy('code3')">
+          <img src="../images/files.png">
+        </button>
+         <button type="submit" class="edit" id="edit-button3">
+           <img src="../images/edit.png">
+         </button>
+         <button type="submit" class="save" id="end-editing3">
+           <img src="../images/save.png">
+         </button>
+        </div>
+        
+        <pre>
+                <code id="code3">
+# Stack implementation in python
+
+
+# Creating a stack
+def create_stack():
+    stack = []
+    return stack
+
+
+# Creating an empty stack
+def check_empty(stack):
+    return len(stack) == 0
+
+
+# Adding items into the stack
+def push(stack, item):
+    stack.append(item)
+    print("pushed item: " + item)
+
+
+# Removing an element from the stack
+def pop(stack):
+    if (check_empty(stack)):
+        return "stack is empty"
+
+    return stack.pop()
+
+
+stack = create_stack()
+push(stack, str(1))
+push(stack, str(2))
+push(stack, str(3))
+push(stack, str(4))
+print("popped item: " + pop(stack))
+print("stack after popping an element: " + str(stack))</code>
+            </pre>
+        
+      </div>
+
+    </div>
+
+  </div>
+  <div class="tabBlock-pane">
+      <div class="container">
+      <div class="code-wrapper">
+        <div class="rightB">
+          <button class="cpyB" title="copy" onclick="copy('code4')">
+          <img src="../images/files.png">
+        </button>
+         <button type="submit" class="edit" id="edit-button4">
+           <img src="../images/edit.png">
+         </button>
+         <button type="submit" class="save" id="end-editing4">
+           <img src="../images/save.png">
+         </button>
+        </div>
+        
+        <pre>
+                <code id="code4">
+// Stack implementation in Java
+
+class Stack {
+  private int arr[];
+  private int top;
+  private int capacity;
+
+  // Creating a stack
+  Stack(int size) {
+    arr = new int[size];
+    capacity = size;
+    top = -1;
+  }
+
+  // Add elements into stack
+  public void push(int x) {
+    if (isFull()) {
+      System.out.println("OverFlow\nProgram Terminated\n");
+      System.exit(1);
+    }
+
+    System.out.println("Inserting " + x);
+    arr[++top] = x;
+  }
+
+  // Remove element from stack
+  public int pop() {
+    if (isEmpty()) {
+      System.out.println("STACK EMPTY");
+      System.exit(1);
+    }
+    return arr[top--];
+  }
+
+  // Utility function to return the size of the stack
+  public int size() {
+    return top + 1;
+  }
+
+  // Check if the stack is empty
+  public Boolean isEmpty() {
+    return top == -1;
+  }
+
+  // Check if the stack is full
+  public Boolean isFull() {
+    return top == capacity - 1;
+  }
+
+  public void printStack() {
+    for (int i = 0; i <= top; i++) {
+      System.out.println(arr[i]);
+    }
+  }
+
+  public static void main(String[] args) {
+    Stack stack = new Stack(5);
+
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+
+    stack.pop();
+    System.out.println("\nAfter popping out");
+
+    stack.printStack();
+
+  }
+}</code>
+            </pre>
+        
+      </div>
+      
+
+    </div>
+</figure>
+<h4>OUTPUT</h4>
+<div class="container1">
+      <div class="code-wrapper">
+        <pre>
+                <code id="code">
+Stack: 1 2 3 4 
+Item popped= 4
+After popping out
+Stack: 1 2 3
+                </code>
+            </pre>
+          </div>
+        </div>
+  </div>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script defer>
+
+      document.addEventListener('DOMContentLoaded', () => {
+      hljs.initHighlightingOnLoad();
+      hljs.initLineNumbersOnLoad();
+
+  const codeBlock = document.getElementById('code');
+  const copyButton = document.getElementById('copy-button');
+  const copySuccess = document.getElementById('copy-success');
+
+  const copyTextHandler = () => {
+    const text = codeBlock.innerText;
+
+
+    navigator.clipboard.writeText(text).then(
+      () => {
+        copySuccess.classList.add('show-message');
+        setTimeout(() => {
+          copySuccess.classList.remove('show-message');
+        }, 2500);
+      },
+      () => {
+        console.log('Error writing to the clipboard');
+      }
+    );
+  };
+
+  copyButton.addEventListener('click', copyTextHandler);
+});
+
+const paragraph1 = document.getElementById("code1");
+const paragraph2 = document.getElementById("code2");
+const paragraph3 = document.getElementById("code3");
+const paragraph4 = document.getElementById("code4");
+
+const edit_button1 = document.getElementById("edit-button1");
+const end_button1 = document.getElementById("end-editing1");
+
+const edit_button2 = document.getElementById("edit-button2");
+const end_button2 = document.getElementById("end-editing2");
+
+const edit_button3 = document.getElementById("edit-button3");
+const end_button3= document.getElementById("end-editing3");
+
+const edit_button4 = document.getElementById("edit-button4");
+const end_button4= document.getElementById("end-editing4");
+
+edit_button1.addEventListener("click", function() {
+  paragraph1.contentEditable = true;
+  paragraph1.style.backgroundColor = "#222327";
+
+} );
+edit_button2.addEventListener("click", function() {
+  paragraph2.contentEditable = true;
+  paragraph2.style.backgroundColor = "#222327";
+
+} );
+edit_button3.addEventListener("click", function() {
+  paragraph3.contentEditable = true;
+  paragraph3.style.backgroundColor = "#222327";
+
+} );
+edit_button4.addEventListener("click", function() {
+  paragraph4.contentEditable = true;
+  paragraph4.style.backgroundColor = "#222327";
+
+} );
+
+end_button1.addEventListener("click", function() {
+  paragraph1.contentEditable = false;
+  paragraph1.style.backgroundColor = "#071e3d";
+} );
+end_button2.addEventListener("click", function() {
+  paragraph2.contentEditable = false;
+  paragraph2.style.backgroundColor = "#071e3d";
+} );
+end_button3.addEventListener("click", function() {
+  paragraph3.contentEditable = false;
+  paragraph3.style.backgroundColor = "#071e3d";
+} );
+end_button4.addEventListener("click", function() {
+  paragraph4.contentEditable = false;
+  paragraph4.style.backgroundColor = "#071e3d";
+} );
+
+
+    </script>
+
+    <script>
+      var TabBlock = {
+  s: {
+    animLen: 200
+  },
+  
+  init: function() {
+    TabBlock.bindUIActions();
+    TabBlock.hideInactive();
+  },
+  
+  bindUIActions: function() {
+    $('.tabBlock-tabs').on('click', '.tabBlock-tab', function(){
+      TabBlock.switchTab($(this));
+    });
+  },
+  
+  hideInactive: function() {
+    var $tabBlocks = $('.tabBlock');
+    
+    $tabBlocks.each(function(i) {
+      var 
+        $tabBlock = $($tabBlocks[i]),
+        $panes = $tabBlock.find('.tabBlock-pane'),
+        $activeTab = $tabBlock.find('.tabBlock-tab.is-active');
+      
+      $panes.hide();
+      $($panes[$activeTab.index()]).show();
+    });
+  },
+  
+  switchTab: function($tab) {
+    var $context = $tab.closest('.tabBlock');
+    
+    if (!$tab.hasClass('is-active')) {
+      $tab.siblings().removeClass('is-active');
+      $tab.addClass('is-active');
+   
+      TabBlock.showPane($tab.index(), $context);
+    }
+   },
+  
+  showPane: function(i, $context) {
+    var $panes = $context.find('.tabBlock-pane');
+    $panes.slideUp(TabBlock.s.animLen);
+    $($panes[i]).slideDown(TabBlock.s.animLen);
+  }
+};
+
+$(function() {
+  TabBlock.init();
+});
+
+
+function copy(copyId){
+  let inputElement = document.createElement("input");
+  inputElement.type = "text";
+  let copyText = document.getElementById(copyId).innerText;
+  inputElement.value = copyText;
+  document.body.appendChild(inputElement);
+  inputElement.select();
+  document.execCommand('copy');
+  document.body.removeChild(inputElement);
+
+  document.getElementById("alert").style.display = "block";
+  setTimeout(function(){
+    document.getElementById("alert").style.display="none";
+  },1000);
+}
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/src/highlightjs-line-numbers.min.js"></script>
+
+</body>
+</html>

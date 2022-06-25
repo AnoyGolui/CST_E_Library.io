@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="STYLE1/pdfs.css">
+    <title></title>
+    <style>
+        /* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 75px;
+  right: 50px;
+  margin-left: 200px;
+  z-index: 9;
+}
+.inline{
+  margin: 0;
+  position: 0;
+}
+#note-picker{
+  border-radius: 10px;
+  height: 38px;
+  width: 80px;
+  margin-top: 4px;
+  margin-left: 4px;
+  color: yellowgreen;
+  background: transparent;
+  border: 2px solid greenyellow;
+}
+#note-picker option{
+  background: black;
+}
+#note-name{
+  border-radius: 10px;
+  height: 40px;
+  margin-top: 4px;
+  width: 90px;
+  border: 2px solid black;
+}
+#color-picker{
+  border: 2px solid greenyellow;
+  margin-top: 4px;
+  color: yellowgreen;
+  border-radius: 10px;
+  background: transparent;
+  height: 40px;
+}
+#color-picker option{
+  background: black;
+}
+#delete-note{
+  border: 2px solid greenyellow;
+  border-radius: 10px;
+  height: 40px;
+  margin: 2px;
+  background: transparent;
+  width: 40px;
+
+}
+#delete-note img{
+    margin-left: -4px;
+}
+#note-name{
+  background: transparent;
+  border: 2px solid greenyellow;
+  color: yellowgreen;
+}
+.authoring-env {
+  flex-grow: 1;
+  margin-bottom: 45px;
+  height: 500px;
+  background: black;
+  border: 5px solid skyblue;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.options {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+
+
+
+.authored-content {
+  flex: 1;
+  background: black;
+  font-size: 24px;
+  resize: none;
+}
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.8;
+}
+.cls{
+  width: 45px;
+  margin-top: -5px;
+  
+}
+
+
+/* Add a red background color to the cancel button */
+.cancel {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+textarea{
+  height:100%;
+  width: 100%;
+  font-size: 25px;
+  font-weight: 400;
+  border-radius: 15px;
+  outline: none;
+  font-family: monospace;
+}
+.inline{
+  margin-top: -5px;
+}
+.open-button{
+    border: none;
+    cursor: pointer;
+    height: 55px;
+    width: 55px;
+    float: right;
+    bottom: 2px;
+    right: 30px;
+    border-radius: 50%;
+    background: blueviolet;
+    position: absolute;
+}
+::-webkit-scrollbar{
+  width: 12px;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(transparent,#30ff00);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(transparent,#00c6ff);
+}
+::selection {
+   background: #212129;
+}
+
+    </style>
+</head>
+<body> <div class="bod">
+    <embed style="width:100%; height:755px ;"src="CpD.pdf" type="application/pdf"><button class="open-button" onclick="openForm()">
+      <img src="../images/notepad.png">
+    </button></embed>
+</div>
+
+
+<div class="form-popup" id="myForm">
+  <form>
+ 
+  <div class="authoring-env">
+    <div class="options">
+      <div class="inline note-picker-wrapper">
+        <select id="note-picker">
+          <option data-is-meta="true" value="__CREATE_NEW_NOTE__">Create New Note</option>
+          <option data-is-meta="true" disabled>___________________</option>
+        </select>
+      </div>
+      <div class="inline rename-note-wrapper">
+        <input id="note-name" value="" />
+      </div>
+      <div class="inline color-picker-wrapper">
+        <select id="color-picker">
+          <option value="#fff">white</option>
+          <option value="#f00">red</option>
+          <option value="#0f0">green</option>
+          <option value="#00f">blue</option>
+          <option value="#ff0">yellow</option>
+        </select>
+      </div>
+      <div class="inline delete-note-wrapper">
+        <button id="delete-note"><img src="../images/delete-button.png"></button>
+        <button type="button" class="btn cancel" onclick="closeForm()"><img class="cls" src="../images/close.png"></button>
+
+      </div>
+
+    </div>
+
+    <textarea placeholder="Take some notes!" autofocus id="content" class="authored-content"></textarea>
+
+  </div>
+</body>
+</html>
+    
+  </form>
+</div>
+<script>
+     function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+function updateColorPickerForState(state) {
+  document.getElementById('color-picker').value = state.db[state.selected].color;
+}
+
+function updateNoteNameForState(state) {
+  document.getElementById('note-name').value = state.selected;
+}
+
+function updateContentForState(state) {
+  var contentEl = document.getElementById('content');
+  contentEl.style.color = state.db[state.selected].color;
+  contentEl.value = state.db[state.selected].content;
+}
+
+function updateNotePickerForState(state) {
+  var notePickerEl = document.getElementById('note-picker');
+
+  Array.from(notePickerEl.querySelectorAll('option'))
+    .filter(opt => !opt.dataset.isMeta)
+    .forEach(opt => opt.remove());
+
+  Object.keys(state.db).forEach((name) => {
+    notePickerEl.appendChild(new Option(name, name));
+  });
+
+  notePickerEl.value = state.selected;
+}
+
+function makeNextTitle(state) {
+  var nextTitle = 'New Note';
+  var numTry = 1;
+  while (state.db[nextTitle]) {
+    nextTitle = 'New Note ' + (++numTry);
+  }
+  return nextTitle;
+}
+
+function createNote(state) {
+  var nextTitle = makeNextTitle(state);
+  state.db[nextTitle] = {
+    color: '#000',
+    content: '',
+  }
+  state.selected = nextTitle;
+
+  updateViewForState(state);
+}
+
+function initNotePicker(state) {
+  var notePickerEl = document.getElementById('note-picker');
+
+  notePickerEl.addEventListener('change', (evt) => {
+    if (evt.target.value === '__CREATE_NEW_NOTE__') {
+      createNote(state);
+      persistState(state);
+      return;
+    }
+
+    state.selected = evt.target.value;
+
+    persistState(state);
+    updateViewForState(state);
+  });
+}
+
+function initContent(state) {
+  var textareaEl = document.getElementById('content');
+
+  textareaEl.addEventListener('keyup', (evt) => {
+    state.db[state.selected].content = evt.target.value;
+
+    persistState(state);
+  });
+}
+
+function initColorPicker(state) {
+  var colorPickerEl = document.getElementById('color-picker');
+
+  colorPickerEl.addEventListener('change', (evt) => {
+    state.db[state.selected].color = evt.target.value;
+
+    persistState(state);
+    updateContentForState(state);
+  });
+}
+
+function initNoteName(state) {
+  const noteNameEl = document.getElementById('note-name');
+
+  noteNameEl.addEventListener('keydown', (evt) => {
+    if (evt.keyCode === 27) {
+      // esc
+
+      noteNameEl.blur();
+      noteNameEl.value = state.selected;
+    } else if (evt.keyCode === 13) {
+      // enter
+
+      var oldName = state.selected;
+      var newName = evt.target.value;
+
+      if (newName === oldName) {
+        return;
+      }
+
+      if (state.db[newName]) {
+        alert('That name is taken. Please try another');
+        return;
+      }
+
+      state.selected = newName;
+      state.db[newName] = state.db[oldName];
+      delete state.db[oldName];
+
+      persistState(state);
+      updateNotePickerForState(state);
+    }
+  });
+
+  updateNoteNameForState(state);
+}
+
+function initNoteDeleter(state) {
+  document.getElementById('delete-note').addEventListener('click', (evt) => {
+    if (!confirm('Are you sure you want to delete this note?')) {
+      return;
+    }
+
+    var deletedNoteIdx = Object.keys(state.db).indexOf(state.selected);
+    delete state.db[state.selected];
+
+    var noteNames = Object.keys(state.db);
+    if (noteNames.length) {
+      state.selected = noteNames[Math.max(0, deletedNoteIdx - 1)];
+    } else {
+      createNote(state);
+    }
+
+    persistState(state);
+    updateViewForState(state);
+  });
+}
+
+function updateViewForState(state) {
+  updateNotePickerForState(state);
+  updateNoteNameForState(state);
+  updateColorPickerForState(state);
+  updateContentForState(state);
+}
+
+function persistState(state) {
+  localStorage.setItem('state', JSON.stringify(state));
+}
+
+function getPersistedState() {
+  return JSON.parse(localStorage.getItem('state'));
+}
+
+var defaultState = {
+  db: {
+    'My Note': {
+      color: '#000',
+      content: 'This is some content',
+    },
+  },
+  selected: 'My Note',
+};
+
+var state = getPersistedState() || defaultState;
+
+initNotePicker(state);
+initNoteName(state);
+initContent(state);
+initColorPicker(state);
+initNoteDeleter(state);
+
+updateViewForState(state);
+</script>
+    
+</body>
+</html>

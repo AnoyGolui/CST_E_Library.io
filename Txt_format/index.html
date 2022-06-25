@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- META -->
+  <meta charset="utf-8">
+  <title>Text Formatter</title>
+  <meta name="description" content="A package of text formatting tools.">
+  <meta name="author" content="José Aniceto">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONTS -->
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Space+Mono" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon/favicon-16x16.png">
+
+</head>
+  
+<body>
+
+  <div class="container">
+    <h2 id="headline">Text Formatter</h2>
+    <!-- Form -->
+    <div class="section">
+      <form>
+        <label for="textBox"></label>
+        <div id="counts">
+          <p class="counts">Characters: <span id="charCount">0</span></p>
+          <p class="counts">Words: <span id="wordCount">0</span></p>
+        </div>
+        <div class="clear"></div>
+        <textarea class="u-full-width" placeholder="Enter text here..." id="textBox" onkeypress="updateCounts()"></textarea>
+        <div class="btn-group">
+          <input id='lowercase' class="button-green format-btn" type="button" value="lowercase">
+          <input id='uppercase' class="button-green format-btn" type="button" value="UPPERCASE">
+          <input id='sentence' class="button-green format-btn" type="button" value="Sentence case">
+          <input id='capitalize' class="button-green format-btn" type="button" value="Capitalize All">
+          <input id='dashed' class="button-green format-btn" type="button" value="lower-dashed">
+          <input id='clear' class="format-btn" type="button" value="Clear Text">
+          <input id='copy' class="format-btn" type="button" value="Copy to Clipboard">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/text-tools.js"></script>
+  
+</body>
+</html>

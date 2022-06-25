@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>About Us</title>
+	<link rel="stylesheet" type="text/css" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+	<style>
+		* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #212327;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min-content;
+  margin: 10px 0px;
+}
+
+.usercard {
+  background-color: #FEFEFE;
+  padding: 10px;
+  border-radius: 10px;
+  width: 300px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+#pb1, #pb2 {
+  width: 50px;
+  border-radius: 5px;
+  height: 50px;
+  overflow: hidden;
+  margin-right: 10px;
+  background: url("https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1646045360~exp=1646045960~hmac=c1e545a531150c02bb76911ca74918b4f80f1a1d72b4bd477ba8f9ebb224316f&w=740");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.info .name {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.info .job {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.options {
+  background-color: #FEFEFE;
+  padding: 10px;
+  border-radius: 10px;
+  width: 50px;
+  height: 75px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.options .edit, .options .favourite, .options .delete {
+  border-radius: 50%;
+  width: 7px;
+  height: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #202327;
+  border: solid #202327 3px;
+  left: 50%;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.options .edit ion-icon, .options .favourite ion-icon, .options .delete ion-icon {
+  color: white;
+  --ionicon-stroke-width: 50px;
+  opacity: 0;
+  font-size: 1.3rem;
+}
+.options .edit:hover, .options .favourite:hover, .options .delete:hover {
+  background-color: #202327;
+}
+.options .edit {
+  top: 30%;
+}
+.options .favourite {
+  top: 50%;
+}
+.options .delete {
+  top: 70%;
+}
+.options.open {
+  width: 200px;
+}
+.options.open .edit, .options.open .favourite, .options.open .delete {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+}
+.options.open .edit ion-icon, .options.open .favourite ion-icon, .options.open .delete ion-icon {
+  opacity: 1;
+}
+.options.open .edit:hover, .options.open .favourite:hover, .options.open .delete:hover {
+  background-color: #FCD50C;
+}
+.options.open .edit:hover ion-icon, .options.open .favourite:hover ion-icon, .options.open .delete:hover ion-icon {
+  color: #202327;
+}
+.options.open .edit {
+  left: 20%;
+}
+.options.open .favourite {
+  left: 50%;
+}
+.options.open .delete {
+  left: 80%;
+}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+  <div class="usercard">
+    <div id="pb1"></div>
+    <div class="info">
+      <div class="name">Anoy Golui</div>
+      <div class="job">Creative UX/UI Designer</div>
+    </div>
+  </div>
+  <div class="options">
+    <div class="edit">
+      <ion-icon name="mail-open-outline"></ion-icon>
+    </div>
+    <div class="favourite">
+      <ion-icon name="call-outline"></ion-icon>
+    </div>
+    <div class="delete">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="usercard">
+    <div id="pb2"></div>
+    <div class="info">
+      <div class="name">Apurva Mondal</div>
+      <div class="job">Front-end Developer</div>
+    </div>
+  </div>
+  <div class="options">
+    <div class="edit">
+      <ion-icon name="mail-open-outline"></ion-icon>
+    </div>
+    <div class="favourite">
+      <ion-icon name="call-outline"></ion-icon>
+    </div>
+    <div class="delete">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="usercard">
+    <div id="pb2"></div>
+    <div class="info">
+      <div class="name">Arunava Mallik</div>
+      <div class="job">Front-end Developer</div>
+    </div>
+  </div>
+  <div class="options">
+    <div class="edit">
+      <ion-icon name="mail-open-outline"></ion-icon>
+    </div>
+    <div class="favourite">
+      <ion-icon name="call-outline"></ion-icon>
+    </div>
+    <div class="delete">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </div>
+  </div>
+</div>
+	<script>
+		let options = document.getElementsByClassName('options');
+
+Array.from(options).forEach((option) => {
+  option.addEventListener('click', () => {
+    option.classList.toggle('open');
+  });
+});
+	</script>
+	<script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+</body>
+</html>

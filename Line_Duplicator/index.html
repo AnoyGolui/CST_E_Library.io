@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Duplicate Remover</title>
+    <style>
+body{
+    font-family: 'VT323', monospace;
+    background: #222327;
+    }
+.mb-5{
+            color: greenyellow;
+        }
+::-webkit-scrollbar{
+  width: 12px;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(transparent,#30ff00);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(transparent,#00c6ff);
+}
+::selection {
+   background: #212129;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col text-center">
+                <h1 class="display-4 mb-5">Duplicate Remover</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <textarea class="form-control" id="lines" rows="19" placeholder="Add some lines of text" autofocus></textarea>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-3">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <table class="table mb-0 bg-light">
+                                <tbody>
+                                    <tr>
+                                        <th class="border-top-0">Lines</th>
+                                        <td class="border-top-0 text-right" id="total-lines">0</td>
+                                    </tr>
+                                    <tr class="border-bottom">
+                                        <th>Duplicates</th>
+                                        <td class="text-right" id="total-dupes">0</td>
+                                </tbody>
+                            </table>
+                            <div class="card-body border-bottom">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="ignore-empty" checked>
+                                    <label class="form-check-label" for="ignore-empty">Ignore empty lines</label>
+                                </div>
+                            </div>
+                            <div class="card-body border-bottom">
+                                <div id="form-check-all" class="form-check">
+                                    <input class="form-check-input" type="radio" name="display" id="display-all" value="all" checked>
+                                    <label class="form-check-label" for="display-all">
+                                        Show all
+                                    </label>
+                                </div>
+                                <div id="form-check-duplicates" class="form-check">
+                                    <input class="form-check-input" type="radio" name="display" id="display-duplicates" value="duplicates" disabled>
+                                    <label class="form-check-label" for="display-duplicates">
+                                        Show duplicates
+                                    </label>
+                                </div>
+                                <div id="form-check-non-duplicates" class="form-check">
+                                    <input class="form-check-input" type="radio" name="display" id="display-non-duplicates" value="non-duplicates" disabled>
+                                    <label class="form-check-label" for="display-non-duplicates">
+                                        Show non-duplicates
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div id="form-check-all" class="form-check">
+                                    <input class="form-check-input" type="radio" name="keep" id="keep-first" value="first" disabled checked>
+                                    <label class="form-check-label" for="keep-first">
+                                        Keep first instance
+                                    </label>
+                                </div>
+                                <div id="form-check-duplicates" class="form-check">
+                                    <input class="form-check-input" type="radio" name="keep" id="keep-last" value="last" disabled>
+                                    <label class="form-check-label" for="keep-last">
+                                        Keep last instance
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="list-group list-group-flush">
+                                <a href="#lines" id="remove-dupes" class="list-group-item list-group-item-action list-group-item-danger text-center disabled">Remove duplicates</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-4">
+                        <button type="button" id="clear" class="btn btn-danger btn-block" disabled>Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

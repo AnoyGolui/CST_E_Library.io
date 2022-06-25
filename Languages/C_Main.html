@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <title></title>
+    <style>
+      body{
+        background: #222327;
+      }
+  ::-webkit-scrollbar{
+  width: 12px;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(transparent,#30ff00);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(transparent,#00c6ff);
+}
+::selection {
+   background: #212129;
+}
+ 
+
+.home-content{
+  position: relative;
+}
+.home-section{
+  position: absolute;
+  top: 10px;
+  background: var(--clr);
+  height: 150vh;
+  left: 260px;
+  width: calc(100% - 220px);
+  transition: all 0.5s ease;
+}
+.sidebar.close ~ .home-section{
+  left: 78px;
+  width: calc(100% - 78px);
+}
+.home-section .home-content{
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.home-section .home-content .bx-menu,
+.home-section .home-content .text{
+  color: #11101d;
+  font-size: 35px;
+}
+.home-section .home-content .bx-menu{
+  margin: 0 15px;
+  cursor: pointer;
+}
+.home-section .home-content .text{
+  font-size: 26px;
+  font-weight: 600;
+}
+@media (max-width: 420px) {
+  .sidebar.close .nav-links li .sub-menu{
+    display: none;
+  }
+}
+
+
+.box{
+  background: #11101d;
+  margin-left: 20px;
+  max-width: 400px;
+  border-radius: 10px;
+  border-bottom: 20px solid greenyellow;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1) ;
+}
+.box h2{
+  color: black;
+  background: yellowgreen;
+  padding: 10px 20px;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.box ul{
+  position: relative;
+  width: 90%;
+  margin-left: 30px;
+  background: #222327;
+}
+.box ul li{
+  list-style: none;
+  margin-bottom: 2px;
+  margin-left: -50px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  background: lightgrey;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  transition: transform 0.5s;
+}
+.box ul:hover li{
+  opacity: 0.8;
+} 
+.box ul li:hover{
+  transform: scale(1.08);
+  z-index: 100;
+  background: #25bcff;
+  cursor: pointer;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  color: blue;
+  opacity: 1;
+}
+
+.box ul li span{
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background: #25bcff;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 10px ;
+  font-size: 12px;
+  font-weight: 600;
+  transform: translateY(-2px);
+}
+.box ul li:hover span{
+  background: black;
+  color: #25bcff;
+}
+
+.box a{
+  text-decoration: none;
+  font-family: 'VT323', monospace;
+  font-weight:700 ;
+  color: blue;
+}
+
+
+    </style>
+</head>
+<body>
+    
+  <div class="box">
+    <h2>C Introduction</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>1</span>Keywords & Identifier</li></a>
+      <a href="#"><li><span>2</span>Variables & Constants</li></a>
+      <a href="#"><li><span>3</span>C Data Types</li></a>
+      <a href="#"><li><span>4</span>C Input/Output</li></a>
+      <a href="#"><li><span>5</span>C Operators</li></a>
+      <a href="#"><li><span>5</span>C Introduction Examples</li></a>
+
+    </ul>
+  </div>
+  <div class="box">
+    <h2>C Flow Control</h2>
+    <ul>
+      <a href="ifElse.html"><li><span>6</span>C if...else</li></a>
+      <a href="#"><li><span>7</span>C for Loop</li></a>
+      <a href="#"><li><span>8</span>C while Loop</li></a>
+      <a href="#"><li><span>9</span>C break and continue</li></a>
+      <a href="#"><li><span>10</span>C switch...case</li></a>
+      <a href="#"><li><span>11</span>C Programming goto</li></a>
+      <a href="#"><li><span>12</span>C Control Flow Examples</li></a>
+
+    </ul>
+  </div>
+  <div class="box">
+    <h2>C Function</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>13</span>C Programming Functions</li></a>
+      <a href="#"><li><span>14</span>C User-defined Functions</li></a>
+      <a href="#"><li><span>15</span>C Function Types</li></a>
+      <a href="#"><li><span>16</span>C Recursion</li></a>
+      <a href="#"><li><span>17</span>C Storage Class</li></a>
+      <a href="#"><li><span>18</span>C Function Example</li></a>
+
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>C Programming Arrays</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>19</span>C Programming Arrays</li></a>
+      <a href="#"><li><span>20</span>C Multi-dimensional Arrays</li></a>
+      <a href="#"><li><span>21</span>C Array & Function</li></a>
+     
+
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>C Programming Strings</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>22</span>C Programming String</li></a>
+      <a href="#"><li><span>23</span>C String Functions</li></a>
+      <a href="#"><li><span>24</span>C String Examplex</li></a>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>Structure And Union</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>25</span>C Structure</li></a>
+      <a href="#"><li><span>26</span>C Struct </li></a>
+      <a href="#"><li><span>27</span>C Function Types</li></a>
+      <a href="#"><li><span>28</span>C Recursion</li></a>
+      <a href="#"><li><span>29</span>C Storage Class</li></a>
+      <a href="#"><li><span>30</span>C Function Example</li></a>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>C Programming Files</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>31</span>C Files Input/Output</li></a>
+      <a href="#"><li><span>32</span>C Files Examples</li></a>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>Additional Topics</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>33</span>C Enumeration</li></a>
+      <a href="#"><li><span>34</span>C Preprocessors</li></a>
+      <a href="#"><li><span>35</span>C Standard Library</li></a>
+      <a href="#"><li><span>36</span>C Programming Examples</li></a>
+    </ul>
+  </div>
+  <script>
+      // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+  </script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

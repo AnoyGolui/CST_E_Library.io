@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
+    <!-- Custom Highlight.js theme Dracula -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.5.0/styles/rainbow.css" />
+    <style>
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #222327;
+  color: #222;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  line-height: 1.5;
+  max-width: 650px;
+ 
+}
+.container {
+  width: 100%;
+
+}
+
+.language {
+  color: white;
+  background-color: #1f4287;
+  padding: 0;
+  border-radius: 5px 5px 0 0;
+  text-align: right;
+}
+
+.code-wrapper {
+  position: relative;
+  margin-left: 10px;
+}
+
+.code-wrapper pre {
+  background-color: #071e3d;
+  color: white;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0 0 5px 5px;
+}
+code{
+  margin-top: -27px;
+  margin-bottom: -55px;
+}
+
+.code-wrapper:hover #copy-button {
+  opacity: 1;
+}
+
+#copy-success {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f4287;
+  color: white;
+  padding: 16px 32px;
+  font-size: 24px;
+  border-radius: 5px;
+  display: none;
+}
+
+#copy-success.show-message {
+  display: inline-block;
+}
+
+.hljs {
+  background-color: transparent;
+}
+.group::after, .tabBlock-tabs::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    font-size: 137.5%;
+  }
+}
+
+p, ol, ul {
+  margin-bottom: -20px;
+  margin-top: 0;
+}
+
+ol, ul {
+  padding: 0;
+  margin-left: 1.25rem;
+}
+
+.unstyledList, .tabBlock-tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabBlock-tab {
+  background:#1f4287;
+  border-color:2px solid black;
+  border-style: solid;
+  width: 40px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: -15px;
+  font-weight: 600;
+  float: right;
+  position: relative;
+  -webkit-transition: 0.1s ease-in-out;
+          transition: 0.1s ease-in-out;
+}
+.tabBlock-tab:last-of-type {
+  border-right-style: solid;
+}
+.tabBlock-tab::before, .tabBlock-tab::after {
+  content: "";
+  display: block;
+  height: 4px;
+  position: absolute;
+  -webkit-transition: 0.1s ease-in-out;
+          transition: 0.1s ease-in-out;
+}
+.tabBlock-tab::before {
+  left: -2px;
+  right: -2px;
+}
+.tabBlock-tab::after {
+  left: 0;
+  right: 0;
+}
+@media screen and (min-width: 700px) {
+  .tabBlock-tab {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+.tabBlock-tab.is-active {
+  position: relative;
+  color: orangered;
+  z-index: 1;
+}
+
+.tabBlock-content{
+  border: 3px solid #1f4287;
+  border-radius: 20px;
+  background:#1f4287;
+}
+.tabBlock-pane > :last-child {
+  margin-bottom: 0;
+} 
+.container1{
+  width: 90%;
+  
+  margin-left: 30px;
+  border-left-style: 20px solid #1f4287 ;
+}
+.tabBlock-tab img{
+  margin-top: 4px;
+
+}
+.cpyB{
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  border: none;
+  margin-left: 3px;
+  margin-top: 3px;
+  background-color: #000080;
+}
+.cpyB img{
+  margin: 4px;
+  width: 33px;
+  height: 33px;
+}
+.cpyB:hover{
+  background: orangered;
+}
+.edit{
+  border-radius: 10px;
+  margin-left: 3px;
+  margin-top: 3px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border: none;
+  background-color: #000080;
+}
+.edit img{
+  margin: 4px;
+  width: 40px;
+  height: 40px;
+}
+.edit:hover{
+  background: orangered;
+}
+.rightB{
+  float: right;
+  display: flex;
+  flex-direction: column;
+}
+.save{
+  margin-left: 3px;
+  cursor: pointer;
+  margin-top: 3px;
+  margin-right: 3px;
+  background-color: #000080;
+  border-radius: 10px;
+  border: none;
+}
+.save img{
+  width: 33px;
+  height: 33px;
+  margin: 4px;
+}
+.save:hover{
+  background:orangered ;
+}
+::-webkit-scrollbar{
+  width: 12px;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(transparent,#30ff00);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(transparent,#00c6ff);
+}
+::selection {
+   background: #212129;
+}
+    </style>
+ 
+
+    <title></title>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<figure class="tabBlock">
+  <ul class="tabBlock-tabs">
+    <li class="tabBlock-tab " title="C++">
+      <img src="../images/cpp.png" width="30px">
+    </li>
+    <li class="tabBlock-tab is-active" title="C">
+      <img src="../images/c.png" width="30px">
+    </li>
+    <li class="tabBlock-tab" title="Python">
+      <img src="../images/python.png">
+    </li>
+    <li class="tabBlock-tab" title="Java">
+      <img src="../images/java_1.png" width="30px">
+    </li>
+  </ul>
+  <div class="tabBlock-content">
+    <div class="tabBlock-pane">
+      <div class="container">
+      <div class="code-wrapper">
+        <div class="rightB">
+          <button class="cpyB" title="copy" onclick="copy('code1')">
+          <img src="../images/files.png">
+        </button>
+         <button type="submit" class="edit" id="edit-button1">
+           <img src="../images/edit.png">
+         </button>
+         <button type="submit" class="save" id="end-editing1">
+           <img src="../images/save.png">
+         </button>
+        </div>
+        
+        <pre>
+                <code id="code1">
+// C++ program to implement linear
+// search in unsorted array
+#include < bits/stdc++.h>
+using namespace std;
+ 
+// Function to implement search operation
+int findElement(int arr[], int n,
+                int key)
+{
+  int i;
+  for (i = 0; i < n; i++)
+      if (arr[i] == key)
+          return i;
+ 
+  return -1;
+}
+ 
+// Driver Code
+int main()
+{
+  int arr[] = {12, 34, 10, 6, 40};
+  int n = sizeof(arr) / sizeof(arr[0]);
+ 
+  // Using a last element as search element
+  int key = 40;
+  int position = findElement(arr, n, key);
+ 
+  if (position == - 1)
+      cout << "Element not found";
+  else
+      cout << "Element Found at Position: "
+            << position + 1;
+ 
+  return 0;
+}
+ 
+
+}</code>
+            </pre>
+        
+      </div>
+
+    </div>
+    </div>
+    <div class="tabBlock-pane">
+      <div class="container">
+      
+      <div class="code-wrapper">
+         <div class="rightB">
+          <button class="cpyB" title="copy" onclick="copy('code2')">
+          <img src="../images/files.png">
+        </button>
+         <button type="submit" class="edit" id="edit-button2">
+           <img src="../images/edit.png">
+         </button>
+         <button type="submit" class="save" id="end-editing2">
+          <img src="../images/save.png">
+         </button>
+        </div>
+        
+        <pre>
+                <code id="code2">
+// C program to implement insert
+// operation in an unsorted array.
+#include < stdio.h>
+ 
+// Inserts a key in arr[] of given capacity.
+// n is current size of arr[]. This
+// function returns n + 1 if insertion
+// is successful, else n.
+int insertSorted(int arr[], int n,
+                 int key,
+                 int capacity)
+{
+ 
+  // Cannot insert more elements if n is
+  // already more than or equal to capacity
+  if (n >= capacity)
+       return n;
+ 
+  arr[n] = key;
+ 
+  return (n + 1);
+}
+ 
+// Driver Code
+int main()
+{
+  int arr[20] = {12, 16, 20, 40, 50, 70};
+  int capacity = sizeof(arr) / sizeof(arr[0]);
+  int n = 6;
+  int i, key = 26;
+ 
+  printf("\n Before Insertion: ");
+  for (i = 0; i < n; i++)
+        printf("%d  ", arr[i]);
+ 
+  // Inserting key
+  n = insertSorted(arr, n, key, capacity);
+ 
+  printf("\n After Insertion: ");
+  for (i = 0; i < n; i++)
+      printf("%d  ",arr[i]);
+ 
+  return 0;
+}
+}</code>
+            </pre>
+
+      </div>
+    
+
+    </div>
+
+    </div>
+    <div class="tabBlock-pane">
+      <div class="container">
+      <div class="code-wrapper">
+        <div class="rightB">
+          <button class="cpyB" title="copy" onclick="copy('code3')">
+          <img src="../images/files.png">
+        </button>
+         <button type="submit" class="edit" id="edit-button3">
+           <img src="../images/edit.png">
+         </button>
+         <button type="submit" class="save" id="end-editing3">
+           <img src="../images/save.png">
+         </button>
+        </div>
+        
+        <pre>
+                <code id="code3">
+// C++ program to implement linear
+// search in unsorted array
+#include < bits/stdc++.h>
+using namespace std;
+ 
+// Function to implement search operation
+int findElement(int arr[], int n,
+                int key)
+{
+  int i;
+  for (i = 0; i < n; i++)
+      if (arr[i] == key)
+          return i;
+ 
+  return -1;
+}
+ 
+// Driver Code
+int main()
+{
+  int arr[] = {12, 34, 10, 6, 40};
+  int n = sizeof(arr) / sizeof(arr[0]);
+ 
+  // Using a last element as search element
+  int key = 40;
+  int position = findElement(arr, n, key);
+ 
+  if (position == - 1)
+      cout << "Element not found";
+  else
+      cout << "Element Found at Position: "
+            << position + 1;
+ 
+  return 0;
+}
+ 
+
+}</code>
+            </pre>
+        
+      </div>
+
+    </div>
+
+  </div>
+  <div class="tabBlock-pane">
+      <div class="container">
+      <div class="code-wrapper">
+        <div class="rightB">
+          <button class="cpyB" title="copy" onclick="copy('code4')">
+          <img src="../images/files.png">
+        </button>
+         <button type="submit" class="edit" id="edit-button4">
+           <img src="../images/edit.png">
+         </button>
+         <button type="submit" class="save" id="end-editing4">
+           <img src="../images/save.png">
+         </button>
+        </div>
+        
+        <pre>
+                <code id="code4">
+// Java program to implement insert
+// operation in an unsorted array.
+ 
+class Main
+{
+  // Function to insert a given key in
+  // the array. This function returns n+1
+  // if insertion is successful, else n.
+  static int insertSorted(int arr[], int n,
+                          int key,
+                          int capacity)
+  {
+ 
+  // Cannot insert more elements if n
+  // is already more than or equal to
+  // capacity
+    if (n >= capacity)
+      return n;
+      
+    arr[n] = key;
+      
+    return (n + 1);
+  }
+      
+  // Driver Code
+  public static void main(String[] args)
+  {  
+    int[] arr = new int[20];
+    arr[0] = 12;
+    arr[1] = 16;
+    arr[2] = 20;
+    arr[3] = 40;
+    arr[4] = 50;
+    arr[5] = 70;
+    int capacity = 20;
+    int n = 6;
+    int i, key = 26;
+      
+    System.out.print("Before Insertion:");
+    for (i = 0; i < n; i++)
+      System.out.print(arr[i]+" ");
+      
+    // Inserting key
+    n=insertSorted(arr, n, key, capacity);
+      
+    System.out.print("\n After Insertion:");
+    for (i = 0; i < n; i++)
+      System.out.print(arr[i]+" ");
+    }
+}</code>
+            </pre>
+        
+      </div>
+      
+
+    </div>
+</figure>
+<h4>OUTPUT</h4>
+<div class="container1">
+      <div class="code-wrapper">
+        <pre>
+                <code id="code">
+Before Insertion: 12 16 20 40 50 70 
+After Insertion: 12 16 20 40 50 70 26 
+                </code>
+            </pre>
+          </div>
+        </div>
+           <script defer>
+
+      document.addEventListener('DOMContentLoaded', () => {
+      hljs.initHighlightingOnLoad();
+      hljs.initLineNumbersOnLoad();
+
+  const codeBlock = document.getElementById('code');
+  const copyButton = document.getElementById('copy-button');
+  const copySuccess = document.getElementById('copy-success');
+
+  const copyTextHandler = () => {
+    const text = codeBlock.innerText;
+
+
+    navigator.clipboard.writeText(text).then(
+      () => {
+        copySuccess.classList.add('show-message');
+        setTimeout(() => {
+          copySuccess.classList.remove('show-message');
+        }, 2500);
+      },
+      () => {
+        console.log('Error writing to the clipboard');
+      }
+    );
+  };
+
+  copyButton.addEventListener('click', copyTextHandler);
+});
+
+const paragraph1 = document.getElementById("code1");
+const paragraph2 = document.getElementById("code2");
+const paragraph3 = document.getElementById("code3");
+const paragraph4 = document.getElementById("code4");
+
+const edit_button1 = document.getElementById("edit-button1");
+const end_button1 = document.getElementById("end-editing1");
+
+const edit_button2 = document.getElementById("edit-button2");
+const end_button2 = document.getElementById("end-editing2");
+
+const edit_button3 = document.getElementById("edit-button3");
+const end_button3= document.getElementById("end-editing3");
+
+const edit_button4 = document.getElementById("edit-button4");
+const end_button4= document.getElementById("end-editing4");
+
+edit_button1.addEventListener("click", function() {
+  paragraph1.contentEditable = true;
+  paragraph1.style.backgroundColor = "#222327";
+
+} );
+edit_button2.addEventListener("click", function() {
+  paragraph2.contentEditable = true;
+  paragraph2.style.backgroundColor = "#222327";
+
+} );
+edit_button3.addEventListener("click", function() {
+  paragraph3.contentEditable = true;
+  paragraph3.style.backgroundColor = "#222327";
+
+} );
+edit_button4.addEventListener("click", function() {
+  paragraph4.contentEditable = true;
+  paragraph4.style.backgroundColor = "#222327";
+
+} );
+
+end_button1.addEventListener("click", function() {
+  paragraph1.contentEditable = false;
+  paragraph1.style.backgroundColor = "#071e3d";
+} );
+end_button2.addEventListener("click", function() {
+  paragraph2.contentEditable = false;
+  paragraph2.style.backgroundColor = "#071e3d";
+} );
+end_button3.addEventListener("click", function() {
+  paragraph3.contentEditable = false;
+  paragraph3.style.backgroundColor = "#071e3d";
+} );
+end_button4.addEventListener("click", function() {
+  paragraph4.contentEditable = false;
+  paragraph4.style.backgroundColor = "#071e3d";
+} );
+
+
+    </script>
+
+    <script>
+      var TabBlock = {
+  s: {
+    animLen: 200
+  },
+  
+  init: function() {
+    TabBlock.bindUIActions();
+    TabBlock.hideInactive();
+  },
+  
+  bindUIActions: function() {
+    $('.tabBlock-tabs').on('click', '.tabBlock-tab', function(){
+      TabBlock.switchTab($(this));
+    });
+  },
+  
+  hideInactive: function() {
+    var $tabBlocks = $('.tabBlock');
+    
+    $tabBlocks.each(function(i) {
+      var 
+        $tabBlock = $($tabBlocks[i]),
+        $panes = $tabBlock.find('.tabBlock-pane'),
+        $activeTab = $tabBlock.find('.tabBlock-tab.is-active');
+      
+      $panes.hide();
+      $($panes[$activeTab.index()]).show();
+    });
+  },
+  
+  switchTab: function($tab) {
+    var $context = $tab.closest('.tabBlock');
+    
+    if (!$tab.hasClass('is-active')) {
+      $tab.siblings().removeClass('is-active');
+      $tab.addClass('is-active');
+   
+      TabBlock.showPane($tab.index(), $context);
+    }
+   },
+  
+  showPane: function(i, $context) {
+    var $panes = $context.find('.tabBlock-pane');
+    $panes.slideUp(TabBlock.s.animLen);
+    $($panes[i]).slideDown(TabBlock.s.animLen);
+  }
+};
+
+$(function() {
+  TabBlock.init();
+});
+
+
+function copy(copyId){
+  let inputElement = document.createElement("input");
+  inputElement.type = "text";
+  let copyText = document.getElementById(copyId).innerText;
+  inputElement.value = copyText;
+  document.body.appendChild(inputElement);
+  inputElement.select();
+  document.execCommand('copy');
+  document.body.removeChild(inputElement);
+
+  document.getElementById("alert").style.display = "block";
+  setTimeout(function(){
+    document.getElementById("alert").style.display="none";
+  },1000);
+}
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/src/highlightjs-line-numbers.min.js"></script>
+  </body>
+</html>

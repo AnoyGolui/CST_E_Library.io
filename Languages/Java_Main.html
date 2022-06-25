@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <title></title>
+    <style>
+ body{
+        background: #222327;
+      }
+ ::-webkit-scrollbar{
+  width: 12px;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(transparent,#30ff00);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(transparent,#00c6ff);
+}
+::selection {
+   background: #212129;
+}
+
+.home-content{
+  position: relative;
+}
+.home-section{
+  position: absolute;
+  top: 10px;
+  background: var(--clr);
+  height: 150vh;
+  left: 260px;
+  width: calc(100% - 220px);
+  transition: all 0.5s ease;
+}
+.sidebar.close ~ .home-section{
+  left: 78px;
+  width: calc(100% - 78px);
+}
+.home-section .home-content{
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.home-section .home-content .bx-menu,
+.home-section .home-content .text{
+  color: #11101d;
+  font-size: 35px;
+}
+.home-section .home-content .bx-menu{
+  margin: 0 15px;
+  cursor: pointer;
+}
+.home-section .home-content .text{
+  font-size: 26px;
+  font-weight: 600;
+}
+@media (max-width: 420px) {
+  .sidebar.close .nav-links li .sub-menu{
+    display: none;
+  }
+}
+
+
+.box{
+  background: #11101d;
+  margin-left: 20px;
+  max-width: 400px;
+  border-radius: 10px;
+  border-bottom: 20px solid greenyellow;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1) ;
+}
+.box h2{
+  color: black;
+  background: yellowgreen;
+  padding: 10px 20px;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.box ul{
+  position: relative;
+  width: 90%;
+  margin-left: 30px;
+  background: #222327;
+}
+.box ul li{
+  list-style: none;
+  margin-bottom: 2px;
+  margin-left: -50px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  background: lightgrey;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  transition: transform 0.5s;
+}
+.box ul:hover li{
+  opacity: 0.8;
+} 
+.box ul li:hover{
+  transform: scale(1.08);
+  z-index: 100;
+  background: #25bcff;
+  cursor: pointer;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  color: blue;
+  opacity: 1;
+}
+
+.box ul li span{
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background: #25bcff;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 10px ;
+  font-size: 12px;
+  font-weight: 600;
+  transform: translateY(-2px);
+}
+.box ul li:hover span{
+  background: black;
+  color: #25bcff;
+}
+
+.box a{
+  text-decoration: none;
+  font-family: 'VT323', monospace;
+  font-weight:700 ;
+  color: blue;
+}
+
+
+    </style>
+</head>
+<body>
+    
+  <div class="box">
+    <h2>Java Introduction</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>1</span>Java Hello World</li></a>
+      <a href="#"><li><span>2</span>Java JVM, JRE and JDK</li></a>
+      <a href="#"><li><span>3</span>Java Variable</li></a>
+      <a href="#"><li><span>4</span>Java Data Types</li></a>
+      <a href="#"><li><span>5</span>Java Operators</li></a>
+      <a href="#"><li><span>6</span>Java Input and Output</li></a>
+      <a href="#"><li><span>7</span>Java Expressions & Blocks</li></a>
+      <a href="#"><li><span>8</span>Java Comment</li></a>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>Java Flow Control</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>9</span>Java if...else</li></a>
+      <a href="#"><li><span>10</span>Java switch Statement</li></a>
+      <a href="#"><li><span>11</span>Java for Loop</li></a>
+      <a href="#"><li><span>12</span>Java for-each Loop</li></a>
+      <a href="#"><li><span>13</span>Java while Loop</li></a>
+      <a href="#"><li><span>14</span>Java break Statement</li></a>
+      <a href="#"><li><span>15</span>Java continue Statement</li></a>
+
+
+    </ul>
+  </div>
+  <div class="box">
+    <h2>Java Arrays</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>16</span>Java Array</li></a>
+      <a href="#"><li><span>17</span>Multidimentional Array</li></a>
+      <a href="#"><li><span>18</span>Java Copy Array</li></a>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>Java OOP(I)</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>19</span>Java Class and Objects</li></a>
+      <a href="#"><li><span>20</span>Java Methods</li></a>
+      <a href="#"><li><span>21</span>Java Constructor</li></a>
+      <a href="#"><li><span>22</span>Java Strings</li></a>
+      <a href="#"><li><span>23</span>Java Access Modifiers</li></a>
+      <a href="#"><li><span>24</span>Java this keyword</li></a>
+      <a href="#"><li><span>25</span>Java final keyword</li></a>
+      <a href="#"><li><span>26</span>Java Recursion</li></a>
+      <a href="#"><li><span>27</span>Java instanceof Operator</li></a>
+
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>Java OOP(II)</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>28</span>Java Inheritance</li></a>
+      <a href="#"><li><span>29</span>Java Method Overriding</li></a>
+      <a href="#"><li><span>30</span>Java super Keyword</li></a>
+      <a href="#"><li><span>31</span>Abstract Class & Method</li></a>
+      <a href="#"><li><span>32</span>Java Interfaces</li></a>
+      <a href="#"><li><span>33</span>Java Polymorphism</li></a>
+      <a href="#"><li><span>34</span>Java Encapsulation</li></a>
+
+
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>Java OOP(III)</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>35</span>Nested & Inner Class</li></a>
+      <a href="#"><li><span>36</span>Java Static Class</li></a>
+      <a href="#"><li><span>37</span>Java Anonymous Class</li></a>
+      <a href="#"><li><span>38</span>Java Singleton</li></a>
+      <a href="#"><li><span>39</span>Java enum Class</li></a>
+      <a href="#"><li><span>40</span>Java enum Constructor</li></a>
+      <a href="#"><li><span>41</span>Java enum String</li></a>
+      <a href="#"><li><span>42</span>Java Reflection</li></a>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>Java Exception Handling</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>42</span>Java Exception</li></a>
+      <a href="#"><li><span>43</span>Java Exception Handling</li></a>
+      <a href="#"><li><span>44</span>Java try..catch</li></a>
+      <a href="#"><li><span>45</span>Java throw and throws</li></a>
+      <a href="#"><li><span>46</span>Java catch Multiple Exceptions</li></a>
+      <a href="#"><li><span>47</span>Java try-with-resources</li></a>
+      <a href="#"><li><span>48</span>Java Annotations</li></a>
+      <a href="#"><li><span>49</span>Java Annotation Types</li></a>
+      <a href="#"><li><span>50</span>Java Logging</li></a>
+      <a href="#"><li><span>51</span>Java Assertions</li></a>
+
+    </ul>
+  </div>
+  <div class="box">
+    <h2>Java List</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>52</span>Java Collections Framework</li></a>
+      <a href="#"><li><span>53</span>Java Collection Interface</li></a>
+      <a href="#"><li><span>54</span>Java List Interface</li></a>
+      <a href="#"><li><span>55</span>Java ArrayList</li></a>
+      <a href="#"><li><span>52</span>Java Vector</li></a>
+      <a href="#"><li><span>53</span>Java Stack</li></a>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>Java Queue</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>53</span>Java Queue Interface</li></a>
+      <a href="#"><li><span>54</span>Java PriorityQueue Interface</li></a>
+      <a href="#"><li><span>55</span>Java Deque Interface</li></a>
+      <a href="#"><li><span>56</span>Java LinkedList</li></a>
+      <a href="#"><li><span>57</span>Java ArrayDeque</li></a>
+      <a href="#"><li><span>58</span>Java BlockingQueue Interface</li></a>
+      <a href="#"><li><span>59</span>Java ArrayBlockingQueue</li></a>
+      <a href="#"><li><span>60</span>Java LinkedBlockingQueue</li></a>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>Java Map</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>61</span>Java Map Interface</li></a>
+      <a href="#"><li><span>62</span>Java HashMap</li></a>
+      <a href="#"><li><span>63</span>Java LinkedHashMap</li></a>
+      <a href="#"><li><span>64</span>Java WeakHashMap</li></a>
+      <a href="#"><li><span>65</span>Java EnumMap</li></a>
+      <a href="#"><li><span>66</span>Java SortedMap Interface</li></a>
+      <a href="#"><li><span>67</span>Java NavigableMap Interface</li></a>
+      <a href="#"><li><span>68</span>Java TreeMap</li></a>
+      <a href="#"><li><span>69</span>Java ConcurrentMap Interface</li></a>
+      <a href="#"><li><span>70</span>Java ConcurrentHashMap</li></a>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>Java Set</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>71</span>Java Set Interface</li></a>
+      <a href="#"><li><span>72</span>Java HashSet</li></a>
+      <a href="#"><li><span>73</span>Java EnumSet</li></a>
+      <a href="#"><li><span>74</span>Java LinkedHashSet</li></a>
+      <a href="#"><li><span>75</span>Java EnumMap</li></a>
+      <a href="#"><li><span>76</span>Java SortedSet Interface</li></a>
+      <a href="#"><li><span>77</span>Java NavigableSet Interface</li></a>
+      <a href="#"><li><span>78</span>Java TreeSet</li></a>
+      <a href="#"><li><span>79</span>Java Algorithms</li></a>
+      <a href="#"><li><span>80</span>Java Iterator</li></a>
+      <a href="#"><li><span>81</span>Java ListIterator</li></a>
+    </ul>
+  </div>
+
+<div class="box">
+    <h2>Java I/O Streams</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>82</span>Java I/O Streams</li></a>
+      <a href="#"><li><span>83</span>Java InputStream</li></a>
+      <a href="#"><li><span>84</span>Java OutputStream</li></a>
+      <a href="#"><li><span>85</span>Java FileInputStream</li></a>
+      <a href="#"><li><span>86</span>Java FileOutputStream</li></a>
+      <a href="#"><li><span>87</span>Java ByteArrayInputStream</li></a>
+      <a href="#"><li><span>88</span>Java ByteArrayOutputStream</li></a>
+      <a href="#"><li><span>89</span>Java ObjectInputStream</li></a>
+      <a href="#"><li><span>90</span>Java ObjectOutputStream</li></a>
+      <a href="#"><li><span>91</span>Java BufferedInputStream</li></a>
+      <a href="#"><li><span>92</span>Java BufferedOutputStream</li></a>
+      <a href="#"><li><span>93</span>Java PrintStream</li></a>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>Java Reader/Writer</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>94</span>Java Reader</li></a>
+      <a href="#"><li><span>95</span>Java Writer</li></a>
+      <a href="#"><li><span>96</span>Java InputStreamReader</li></a>
+      <a href="#"><li><span>97</span>Java OutputStreamWriter</li></a>
+      <a href="#"><li><span>98</span>Java FileReader</li></a>
+      <a href="#"><li><span>99</span>Java FileWriter</li></a>
+      <a href="#"><li><span>100</span>Java BufferedReader</li></a>
+      <a href="#"><li><span>101</span>Java Buffered Writer</li></a>
+      <a href="#"><li><span>102</span>Java StringReader</li></a>
+      <a href="#"><li><span>103</span>Java StringWriter</li></a>
+      <a href="#"><li><span>104</span>Java PrintWriter</li></a>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>Additional Topics</h2>
+    <ul>
+      <a href="C_code1.html"><li><span>105</span>Java Scanner Class</li></a>
+      <a href="#"><li><span>106</span>Java Type Casting</li></a>
+      <a href="#"><li><span>107</span>Java autoboxing and unboxing</li></a>
+      <a href="#"><li><span>108</span>Java Lambda Expression</li></a>
+      <a href="#"><li><span>109</span>Java Generics</li></a>
+      <a href="#"><li><span>110</span>Java File Class</li></a>
+      <a href="#"><li><span>111</span>Java Wrapper Class</li></a>
+      <a href="#"><li><span>112</span>Java Command Line Arguments</li></a>
+    </ul>
+  </div>
+  <script>
+      // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+  </script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

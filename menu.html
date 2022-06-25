@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <title></title>
+    <style>
+ body{
+      background: #222327;
+      font-family: 'VT323', monospace;
+      }
+::-webkit-scrollbar{
+  width: 12px;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(transparent,#30ff00);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(transparent,#00c6ff);
+}
+::selection {
+   background: #212129;
+}
+ 
+ul{
+  position: relative;
+  width: 50%;
+  margin-top: 50px;
+  margin-left: 30px;
+  background: #222327;
+}
+ul li{
+  list-style:none;
+  margin-bottom: 2px;
+  margin-top: 50px;
+  margin-left: -50px;
+  border-radius: 10px;
+  padding: 25px;
+  width: 50%;
+  background: lightgrey;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  transition: transform 0.5s;
+}
+ul:hover li{
+  opacity: 0.8;
+} 
+ul li:hover{
+  transform: scale(1.08);
+  z-index: 100;
+  background: yellowgreen;
+  cursor: pointer;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  color: blue;
+  opacity: 1;
+}
+
+ul li span{
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background: #25bcff;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 10px ;
+  font-size: 12px;
+  font-weight: 600;
+  transform: translateY(-2px);
+}
+ul li:hover span{
+  background: black;
+  color: #25bcff;
+}
+
+a{
+  text-decoration: none;
+  font-family: 'VT323', monospace;
+  font-weight:700 ;
+  font-size: 20px;
+  color: blue;
+}
+    </style>
+</head>
+<body>
+    <ul>
+      <a href="Txt_format/index.html"><li>Text Formatter</li></a>
+      <a href="Line_Duplicator/index.html"><li>Duplicate Remover</li></a>
+      <a href="imgTopdf/index.html"><li>Image to PDF converter</li></a>
+      <a href="Resume_Builder/index.html"><li>Resume Builder</li></a>
+      <a href="Form_Builder/index.html"><li>Form Builder</li></a>
+      <a href="JpgtoPng/index.html"><li>JPG to PNG Converter</li></a>
+    </ul>
+  
+  <script>
+      // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+  </script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
